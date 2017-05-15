@@ -477,20 +477,16 @@ function yates.func.say.ban()
 		return 1
 	end
 
-	--[[yatesMessage(_id, player(_tbl[2], "name").." has been banned.", "success")
-	parse("banip "..player(_tbl[2], "ip").." ".._tbl[3].." \""..reason.."\"")
-	if checkUsgn(_tbl[2], false) then -- You won't get here if the player is banned by the prev. line.
-		parse("banusgn "..player(_tbl[2], "usgn").." ".._tbl[3].." \""..reason.."\"")
-	end]]
-
-	local playerIP = player(_tbl[2], "ip")
-	local playerUSGN = player(_tbl[2], "usgn")
+	local playerIp = player(_tbl[2], "ip")
+	local playerUsgn = player(_tbl[2], "usgn")
 
 	yatesMessage(_id, player(_tbl[2], "name").." has been banned.", "success")
-	if checkUsgn(_tbl[2], false) then -- You won't get here if the player is banned by the prev. line.
-		parse("banusgn "..playerUSGN.." ".._tbl[3].." \""..reason.."\"")
+	
+	if checkUsgn(_tbl[2], false) then
+		parse("banusgn "..playerUsgn.." ".._tbl[3].." \""..reason.."\"")
 	end
-	parse("banip "..playerIP.." ".._tbl[3].." \""..reason.."\"")
+	
+	parse("banip "..playerIp.." ".._tbl[3].." \""..reason.."\"")
 end
 setSayHelp("ban", "<id> [<duration>] (0 for infinite, -1 for server setting) [<reason>]")
 

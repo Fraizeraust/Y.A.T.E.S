@@ -1018,5 +1018,5 @@ function getPlayerGroupLevel(usgn)
 		end
 	end
 
-	return false
+	return return _GROUP.default.level
 end

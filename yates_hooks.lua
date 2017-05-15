@@ -299,6 +299,11 @@ function yates.hook.say(id, text)
 	local tbl = toTable(text)
 	local usgn = player(id, "usgn")
 
+	-- Allows players to check their ranks
+	if text == "rank" then
+		return 0
+	end
+	
 	text = text:gsub("\166", "")
 	text = text:gsub("|", "")
 
